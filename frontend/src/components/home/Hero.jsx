@@ -1,9 +1,10 @@
 function Hero() {
   return (
-    <div className="container text-center mt-5">
-      <h1>Welcome to DevPortfolio Pro</h1>
-      <p>Your Full Stack Developer Portfolio</p>
-    </div>
+    <section className="container py-5">
+      <h1>👋 Hi, I'm Archi Lodha</h1>
+      <h3>Full Stack Java Developer</h3>
+      <p>Welcome to my developer portfolio.</p>
+    </section>
   );
 }
 
