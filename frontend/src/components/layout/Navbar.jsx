@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
       <div className="container">
 
         <Link className="navbar-brand fw-bold" to="/">
@@ -11,17 +11,17 @@ function Navbar() {
 
         <div className="navbar-nav ms-auto">
 
-          <Link className="nav-link" to="/">Home</Link>
+        <a className="nav-link" href="#home">Home</a>
 
-          <Link className="nav-link" to="/about">About</Link>
+<a className="nav-link" href="#about">About</a>
 
-          <Link className="nav-link" to="/projects">Projects</Link>
+<a className="nav-link" href="#skills">Skills</a>
 
-          <Link className="nav-link" to="/skills">Skills</Link>
+<a className="nav-link" href="#projects">Projects</a>
 
-          <Link className="nav-link" to="/certificates">Certificates</Link>
+<a className="nav-link" href="#certificates">Certificates</a>
 
-          <Link className="nav-link" to="/contact">Contact</Link>
+<a className="nav-link" href="#contact">Contact</a>
 
         </div>
 

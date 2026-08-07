@@ -1,10 +1,131 @@
+html{
+    scroll-behavior:smooth;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f8fafc;
+}
+/* Hero Section */
+
+.hero-section {
+    min-height: 90vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    padding: 80px 0;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.hero-section h3 {
+    color: #38bdf8;
+}
+
+.hero-section p {
+    color: #cbd5e1;
+    max-width: 550px;
+}
+
+.profile-image {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border: 5px solid white;
+}
+
+.btn-primary {
+    border-radius: 30px;
+    padding: 12px 28px;
+}
+
+.btn-outline-light {
+    border-radius: 30px;
+    padding: 12px 28px;
+}
+
+.hero-section .btn:hover {
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+
+
+/* ==========================
+   Skills Section
+========================== */
+
+.skill-card{
+    transition:0.3s;
+    border:none;
+    border-radius:15px;
+}
+
+.skill-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 25px rgba(0,0,0,.2);
+}
+
+/* ==========================
+   Projects Section
+========================== */
+
+.project-card{
+    transition:0.3s;
+    border:none;
+    border-radius:15px;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 25px rgba(0,0,0,.2);
+}
+/* Navbar */
+
+.navbar{
+    transition:.3s;
+}
+
+.nav-link{
+    transition:.3s;
+    font-weight:500;
+}
+
+.nav-link:hover{
+    color:#0dcaf0 !important;
+}
+
+.navbar-brand{
+    font-size:1.5rem;
+}
+.btn{
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+@media (max-width:768px){
+
+.hero-section{
+    text-align:center;
+}
+
+.hero-section h1{
+    font-size:2.8rem;
+}
+
+.profile-image{
+    width:220px;
+    height:220px;
+    margin-top:40px;
+}
+
 }
