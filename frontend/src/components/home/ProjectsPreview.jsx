@@ -1,22 +1,26 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getProjects } from "../../api/projectService";
+
 function ProjectsPreview() {
 
-  const projects = [
-    {
-      title: "DevPortfolio-Pro",
-      description: "Full Stack Portfolio using React & Spring Boot"
-    },
-    {
-      title: "Employee Management",
-      description: "CRUD application using Spring Boot and MySQL"
-    },
-    {
-      title: "Job Portal",
-      description: "AI Powered Career Platform"
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    loadProjects();
+  }, []);
+
+  const loadProjects = async () => {
+    try {
+      const response = await getProjects();
+      setProjects(response.data.slice(0, 3));
+    } catch (error) {
+      console.error(error);
     }
-  ];
+  };
 
   return (
-    <section id="projects" className="container py-5">
+    <section className="container py-5">
 
       <h2 className="text-center mb-5">
         Featured Projects
@@ -24,21 +28,30 @@ function ProjectsPreview() {
 
       <div className="row">
 
-        {projects.map((project, index) => (
+        {projects.map((project) => (
 
-          <div className="col-lg-4 mb-4" key={index}>
+          <div className="col-md-4 mb-4" key={project.id}>
 
-            <div className="card shadow project-card h-100">
+            <div className="card h-100 shadow">
 
               <div className="card-body">
 
-                <h4>{project.title}</h4>
+                <h5>{project.title}</h5>
 
                 <p>{project.description}</p>
 
-                <button className="btn btn-primary">
+                <p>
+                  <strong>{project.technology}</strong>
+                </p>
+
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-primary"
+                >
                   View Project
-                </button>
+                </a>
 
               </div>
 
@@ -48,6 +61,12 @@ function ProjectsPreview() {
 
         ))}
 
+      </div>
+
+      <div className="text-center mt-4">
+        <Link to="/projects" className="btn btn-dark">
+          View All Projects
+        </Link>
       </div>
 
     </section>

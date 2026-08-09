@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 function Navbar() {
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+    <nav
+      className={`navbar navbar-expand-lg sticky-top shadow ${
+        darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"
+      }`}
+    >
       <div className="container">
 
         <Link className="navbar-brand fw-bold" to="/">
@@ -11,19 +20,28 @@ function Navbar() {
 
         <div className="navbar-nav ms-auto">
 
-        <a className="nav-link" href="#home">Home</a>
+          <Link className="nav-link" to="/">Home</Link>
 
-<a className="nav-link" href="#about">About</a>
+          <Link className="nav-link" to="/about">About</Link>
 
-<a className="nav-link" href="#skills">Skills</a>
+          <Link className="nav-link" to="/skills">Skills</Link>
 
-<a className="nav-link" href="#projects">Projects</a>
+          <Link className="nav-link" to="/projects">Projects</Link>
 
-<a className="nav-link" href="#certificates">Certificates</a>
+          <Link className="nav-link" to="/certificates">Certificates</Link>
 
-<a className="nav-link" href="#contact">Contact</a>
+          <Link className="nav-link" to="/contact">Contact</Link>
 
         </div>
+
+        <button
+          className={`btn ms-3 ${
+            darkMode ? "btn-outline-light" : "btn-outline-dark"
+          }`}
+          onClick={toggleTheme}
+        >
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
 
       </div>
     </nav>

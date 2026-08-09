@@ -1,48 +1,124 @@
+import profile from "../../assets/images/profile.jpg";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaDownload
+} from "react-icons/fa";
+
+import { TypeAnimation } from "react-type-animation";
+import { Link } from "react-router-dom";
+
 function Hero() {
   return (
-    <section id="home" className="hero-section d-flex align-items-center">
-      <div className="row align-items-center">
+    <section className="hero-section py-5">
+      <div className="container">
+        <div className="row align-items-center">
 
-        <div className="col-lg-6">
+          {/* Left Side */}
+          <div className="col-lg-6">
 
-          <h5 className="text-primary fw-bold">
-            👋 Hello, I'm
-          </h5>
+            <h5 className="text-primary fw-bold">
+              👋 Hello, I'm
+            </h5>
 
-          <h1 className="display-3 fw-bold">
-            Archi Lodha
-          </h1>
+            <h1 className="display-3 fw-bold">
+              Archi Lodha
+            </h1>
 
-          <h3 className="text-secondary mb-4">
-            Full Stack Java Developer
-          </h3>
+            <TypeAnimation
+              sequence={[
+                "Full Stack Java Developer",
+                2000,
+                "React Developer",
+                2000,
+                "Spring Boot Developer",
+                2000,
+                "Software Engineer",
+                2000,
+              ]}
+              wrapper="h3"
+              speed={40}
+              repeat={Infinity}
+              className="typing-text mb-4"
+            />
 
-          <p className="lead">
-            Passionate about building scalable web applications using
-            Java, Spring Boot, React and MySQL.
-          </p>
+            <p className="lead">
+              Passionate about building scalable web applications using
+              Java, Spring Boot, React and MySQL.
+            </p>
 
-          <div className="mt-4">
-  <button className="btn btn-primary btn-lg me-3 px-4">
-    View Projects
-  </button>
+            {/* Buttons */}
+            <div className="mt-4">
 
-  <button className="btn btn-outline-light btn-lg px-4">
-    Contact Me
-  </button>
-</div>
+              <Link
+                to="/projects"
+                className="btn btn-primary btn-lg me-3"
+              >
+                View Projects
+              </Link>
+
+              <Link
+                to="/contact"
+                className="btn btn-outline-light btn-lg"
+              >
+                Contact Me
+              </Link>
+
+            </div>
+
+            {/* Social Icons */}
+            <div className="mt-4">
+
+              <a
+                href="https://github.com/archilodha"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-dark me-2"
+              >
+                <FaGithub />
+              </a>
+
+              <a
+                href="https://linkedin.com/in/archilodha"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary me-2"
+              >
+                <FaLinkedin />
+              </a>
+
+              <a
+                href="mailto:archilodha1@gmail.com"
+                className="btn btn-danger me-2"
+              >
+                <FaEnvelope />
+              </a>
+
+              <a
+                href="/resume.pdf"
+                download
+                className="btn btn-success"
+              >
+                <FaDownload /> Resume
+              </a>
+
+            </div>
+
+          </div>
+
+          {/* Right Side */}
+          <div className="col-lg-6 text-center mt-5 mt-lg-0">
+
+            <img
+              src={profile}
+              alt="Profile"
+              className="img-fluid rounded-circle shadow-lg profile-image"
+            />
+
+          </div>
+
         </div>
-
-        <div className="col-lg-6 text-center mt-5 mt-lg-0">
-
-          <img
-  src="https://via.placeholder.com/350"
-  alt="Profile"
-  className="img-fluid rounded-circle shadow-lg profile-image"
-/>
-
-        </div>
-
       </div>
     </section>
   );
