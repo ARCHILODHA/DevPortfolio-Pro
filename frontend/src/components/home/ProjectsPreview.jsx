@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProjects } from "../../api/projectService";
 
+
 function ProjectsPreview() {
 
   const [projects, setProjects] = useState([]);

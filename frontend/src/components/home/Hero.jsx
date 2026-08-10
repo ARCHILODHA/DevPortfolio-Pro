@@ -9,7 +9,32 @@ import {
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
 
+import { downloadResume } from "../../api/resumeService";
+
 function Hero() {
+  const handleDownload = async () => {
+  try {
+    const response = await downloadResume();
+
+    const url = window.URL.createObjectURL(
+      new Blob([response.data])
+    );
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "resume.pdf";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    window.URL.revokeObjectURL(url);
+
+  } catch (error) {
+    console.error("Error downloading resume:", error);
+    alert("Unable to download resume.");
+  }
+};
   return (
     <section className="hero-section py-5">
       <div className="container">
@@ -95,13 +120,12 @@ function Hero() {
                 <FaEnvelope />
               </a>
 
-              <a
-                href="/resume.pdf"
-                download
-                className="btn btn-success"
-              >
-                <FaDownload /> Resume
-              </a>
+             <button
+  className="btn btn-success"
+  onClick={handleDownload}
+>
+  <FaDownload /> Resume
+</button>
 
             </div>
 

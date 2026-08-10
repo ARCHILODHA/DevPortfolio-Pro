@@ -1,33 +1,42 @@
 import { useEffect, useState } from "react";
 import { getProjects } from "../api/projectService";
 
+
+import LoadingSpinner from "../components/common/LoadingSpinner";
 function Projects() {
 
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     loadProjects();
   }, []);
 
-  const loadProjects = async () => {
-    try {
-      const response = await getProjects();
-      setProjects(response.data);
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="container mt-5">
-        <h3>Loading Projects...</h3>
-      </div>
-    );
+ const loadProjects = async () => {
+  try {
+    const response = await getProjects();
+    setProjects(response.data);
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    setError("Unable to load projects. Please try again later.");
+  } finally {
+    setLoading(false);
   }
+};
+if (error) {
+  return (
+    <div className="container py-5">
+      <div className="alert alert-danger">
+        {error}
+      </div>
+    </div>
+  );
+}
+
+if (loading) {
+  return <LoadingSpinner />;
+}
 
   return (
     <div className="container py-5">
