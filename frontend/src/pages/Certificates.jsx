@@ -55,7 +55,7 @@ if (error) {
 
           <div className="col-md-6 col-lg-4 mb-4" key={certificate.id}>
 
-            <div className="card shadow h-100">
+            <div className="card shadow h-100 certificate-card">
 
               <div className="card-body">
 

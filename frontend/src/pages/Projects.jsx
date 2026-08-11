@@ -52,7 +52,7 @@ if (loading) {
 
             <div className="col-md-6 col-lg-4 mb-4" key={project.id}>
 
-              <div className="card shadow h-100">
+          <div className="card shadow h-100 project-card">
 
                 <div className="card-body">
 

@@ -51,7 +51,7 @@ if (error) {
 
           <div className="col-md-4 mb-4" key={skill.id}>
 
-            <div className="card shadow h-100">
+           <div className="card shadow h-100 skill-card">
 
               <div className="card-body">
 
